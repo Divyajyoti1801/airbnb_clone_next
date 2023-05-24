@@ -8,7 +8,7 @@ import "./globals.css";
 import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata = {
-  title: "AIRBNB: Clone App",
+  title: "Airbnb: Clone App",
   description: "Airbnb Clone App for Portfolio",
 };
 
@@ -30,7 +30,7 @@ export default async function RootLayout({
         <LoginModal />
         <RegisterModal />
         <Navbar currentUser={currentUser} />
-        {children}
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );
