@@ -5,6 +5,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useRentModal from "@/app/hooks/useRentModal";
 import { SafeUser } from "@/app/types";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { Fragment, useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
@@ -15,6 +16,7 @@ interface UserMenuProps {
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+  const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentalModal = useRentModal();
@@ -55,10 +57,22 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="flex flex-col cursor-pointer">
             {currentUser ? (
               <Fragment>
-                <MenuItem onClick={() => {}} label="My Trips" />
-                <MenuItem onClick={() => {}} label="My Favorites" />
-                <MenuItem onClick={() => {}} label="My Reservation" />
-                <MenuItem onClick={() => {}} label="My Properties" />
+                <MenuItem
+                  onClick={() => router.push("/trips")}
+                  label="My Trips"
+                />
+                <MenuItem
+                  onClick={() => router.push("/favorites")}
+                  label="My Favorites"
+                />
+                <MenuItem
+                  onClick={() => router.push("/reservations")}
+                  label="My Reservation"
+                />
+                <MenuItem
+                  onClick={() => router.push("/properties")}
+                  label="My Properties"
+                />
                 <MenuItem
                   onClick={rentalModal.onOpen}
                   label="My Airbnb My Home"
