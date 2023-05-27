@@ -1,3 +1,4 @@
+"use client";
 import getCurrentUser from "./actions/getCurrentUser";
 import getListings, { IListingParams } from "./actions/getListings";
 import Container from "./components/Container";
